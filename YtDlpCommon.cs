@@ -1,5 +1,6 @@
 //css_nuget EasyObject
 //css_dir   $(HOME)/nuget.org/Internals
+//xxx
 namespace Common
 {
     using Global;
