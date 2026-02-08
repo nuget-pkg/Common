@@ -115,7 +115,7 @@ public static class AudioCommon
             }
             if (!File.Exists(fileName))
             {
-                string found = YtDlpCommon.findFileByVideoId(videoId, extension);
+                string? found = YtDlpCommon.findFileByVideoId(videoId, extension);
                 if (found != null) fileName = found;
             }
 

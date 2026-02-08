@@ -61,7 +61,7 @@ namespace Common
             return metadata;
         }
 
-        public static string findFileByVideoId(string videoId, string extension)
+        public static string? findFileByVideoId(string videoId, string extension)
         {
             string[] fileEntries = Directory.GetFiles(".");
             foreach (string fileEntry in fileEntries)
