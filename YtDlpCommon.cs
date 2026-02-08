@@ -1,9 +1,7 @@
-//css_nuget EasyObject
-//css_dir   $(HOME)/nuget.org/Internals
-//xxx
 namespace Common
 {
     using Global;
+    using Common;
     using System;
     using System.IO;
     using System.Text.RegularExpressions;

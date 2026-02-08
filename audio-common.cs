@@ -1,4 +1,5 @@
-//css_inc ../common/YtDlpCommon.cs
+namespace Common
+{
 using Global;
 using System;
 using System.IO;
@@ -128,4 +129,4 @@ public static class AudioCommon
         return;
     }
 }
-
+}
