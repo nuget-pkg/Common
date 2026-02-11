@@ -1,7 +1,7 @@
-//css_nuget DotNetEnv@3.1.1;
-//css_nuget ProcessX@1.5.6;
-//css_nuget Kokuban@0.2.0;
-//css_nuget EasyObject@*;
+#if false
+// //css_nuget DotNetEnv@3.1.1;
+// //css_nuget ProcessX@1.5.6;
+// //css_nuget Kokuban@0.2.0;
 #nullable enable
 namespace Common
 {
@@ -100,3 +100,4 @@ namespace Common
     }
 
 }
+#endif
