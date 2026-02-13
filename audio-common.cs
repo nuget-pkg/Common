@@ -66,7 +66,8 @@ public static class AudioCommon
             if (videoTitle == "Private video") continue;
             if (videoTitle.StartsWith("<video-not-found>")) continue;
             string videoOwnerChannelTitle = video.videoOwnerChannelTitle;
-            string videoUrl = $"https://youtu.be/{videoId}";
+            //string videoUrl = $"https://youtu.be/{videoId}";
+            string videoUrl = $"https://m.youtube.com/watch?v={videoId}";
             string artist = videoOwnerChannelTitle;
             Echo(new { playlistTitle, videoId, videoTitle, videoUrl, videoOwnerChannelTitle });
             string origName = $"『{videoTitle}』 【ID:{videoId}】{extension}"; ;
