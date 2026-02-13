@@ -83,7 +83,7 @@ public static class VideoCommon
                     "yt-dlp",
                     "-S", $"vcodec:h264,res:{resolution},acodec:aac", // https://github.com/yt-dlp/yt-dlp/issues/11362
                     "--add-metadata",
-                    $"--postprocessor-args", $"-metadata album={videoUrl} -metadata title='{YtDlpCommon.AdjustMetaData(/*prefix + */ videoTitle, removeSurrogate: false)}' -metadata artist='{YtDlpCommon.AdjustMetaData(artist, removeSurrogate: false)}' -metadata comment='{datetimeString}'",
+                    $"--postprocessor-args", $"-metadata album={videoUrl} -metadata title='{YtDlpCommon.AdjustMetaData(videoTitle, removeSurrogate: true)}' -metadata artist='{YtDlpCommon.AdjustMetaData(artist, removeSurrogate: true)}' -metadata comment='{datetimeString}'",
                     "--embed-thumbnail",
                     "--merge-output-format", mediaType,
                     $"{videoUrl}",
