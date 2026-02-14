@@ -45,8 +45,8 @@ namespace Common
             )
         {
             var playlistDynamic = playlistObject.Dynamic;
-            string playlistId = playlistDynamic.playlistId;
-            string playlistTitle = playlistDynamic.playlistTitle;
+            string playlistId = playlistDynamic.id;
+            string playlistTitle = playlistDynamic.title;
             Echo(new { playlistId, playlistTitle });
             string m3uPath = $"#{YtDlpCommon.AdjustFileName(playlistTitle, prefix)}.m3u";
             string m3uText = """
@@ -59,12 +59,12 @@ namespace Common
             {
                 var video = videos[i];
                 Echo(video);
-                string videoId = video.videoId;
-                string videoTitle = video.videoTitle;
+                string videoId = video.id;
+                string videoTitle = video.title;
                 if (videoTitle == "Deleted video") continue;
                 if (videoTitle == "Private video") continue;
                 if (videoTitle.StartsWith("<video-not-found>")) continue;
-                string videoOwnerChannelTitle = video.videoOwnerChannelTitle;
+                string videoOwnerChannelTitle = video.ownerTitle;
                 string videoUrl = $"https://youtu.be/{videoId}";
                 string artist = videoOwnerChannelTitle;
                 Echo(new { playlistTitle, videoId, videoTitle, videoUrl, videoOwnerChannelTitle });
