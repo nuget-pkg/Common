@@ -39,6 +39,7 @@ namespace Common
                 .Replace("　", " ")
                 .Replace("|", "｜")
                 .Replace("#", "＃")
+                .Replace("?", "？")
                 ;
             if (!result.StartsWith(prefix))
             {
