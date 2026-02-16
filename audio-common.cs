@@ -20,7 +20,8 @@ namespace Common
             try
             {
                 ShowDetail = true;
-                string allJson = File.ReadAllText(@"C:\Users\user\Downloads\_all_playlist_info.json");
+                //string allJson = File.ReadAllText(@"C:\Users\user\Downloads\_all_playlist_info.json");
+                string allJson = File.ReadAllText(Path.Combine(Environment.GetEnvironmentVariable("HOME"), @"_all_playlist_info.json"));
                 var eo = FromJson(allJson);
                 Echo(eo);
                 var keys = eo.Keys;
