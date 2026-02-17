@@ -94,6 +94,7 @@ namespace Common
                             "--add-metadata",
                             $"--postprocessor-args", $"-metadata album={videoUrl} -metadata title='{YtDlpCommon.AdjustMetaData(videoTitle, removeSurrogate: true)}' -metadata artist='{YtDlpCommon.AdjustMetaData(artist, removeSurrogate: true)}' -metadata comment='{datetimeString}'",
                             "--embed-thumbnail",
+                            "--cookies-from-browser", "firefox",
                             $"{videoUrl}",
                             "-o", fileName
                         );
@@ -110,6 +111,7 @@ namespace Common
                             "--add-metadata",
                             $"--postprocessor-args", $"-metadata album={videoUrl} -metadata title='{YtDlpCommon.AdjustMetaData(videoTitle, removeSurrogate: true)}' -metadata artist='{YtDlpCommon.AdjustMetaData(artist, removeSurrogate: true)}' -metadata comment='{datetimeString}'",
                             "--embed-thumbnail",
+                            "--cookies-from-browser", "firefox",
                             $"{videoUrl}",
                             "-o", fileName
                         );
