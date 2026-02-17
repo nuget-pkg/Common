@@ -22,11 +22,11 @@ namespace Common
                 ShowDetail = true;
                 string allJson = File.ReadAllText(@"C:\Users\user\Downloads\_all_playlist_info.json");
                 var eo = FromJson(allJson);
-                Echo(eo);
+                //Echo(eo);
                 var keys = eo.Keys;
                 foreach (var key in keys)
                 {
-                    Echo(key);
+                    //Echo(key);
                     RunYtDlp(eo[key], prefix: prefix, extension: extension, resolution: resolution);
                 }
             }
@@ -47,7 +47,7 @@ namespace Common
             var playlistDynamic = playlistObject.Dynamic;
             string playlistId = playlistDynamic.id;
             string playlistTitle = playlistDynamic.title;
-            Echo(new { playlistId, playlistTitle });
+            //Echo(new { playlistId, playlistTitle });
             string m3uPath = $"#{YtDlpCommon.AdjustFileName(playlistTitle, prefix)}.m3u";
             string m3uText = """
                     #EXTM3U
@@ -58,7 +58,7 @@ namespace Common
             for (int i = 0; i < videos.Count; i++)
             {
                 var video = videos[i];
-                Echo(video);
+                //Echo(video);
                 string videoId = video.id;
                 string videoTitle = video.title;
                 if (videoTitle == "Deleted video") continue;
@@ -67,16 +67,17 @@ namespace Common
                 string videoOwnerChannelTitle = video.ownerTitle;
                 string videoUrl = $"https://youtu.be/{videoId}";
                 string artist = videoOwnerChannelTitle;
-                Echo(new { playlistTitle, videoId, videoTitle, videoUrl, videoOwnerChannelTitle });
+                //Echo(new { playlistTitle, videoId, videoTitle, videoUrl, videoOwnerChannelTitle });
                 string origName = $"『{videoTitle}』 【ID:{videoId}】{extension}"; ;
                 origName = $"{artist} {origName}";
                 string fileName = YtDlpCommon.AdjustFileName(origName, prefix);
                 if (File.Exists(fileName))
                 {
-                    Log(fileName, "Skipping");
+                    //Log(fileName, "Skipping");
                 }
                 else
                 {
+                    Echo(new { playlistTitle, videoId, videoTitle, videoUrl, videoOwnerChannelTitle });
                     string datetimeString = DateTime.Now.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz");
                     Echo(datetimeString, "datetimeString");
                     Sys.RunCommand(
@@ -86,6 +87,7 @@ namespace Common
                         $"--postprocessor-args", $"-metadata album={videoUrl} -metadata title='{YtDlpCommon.AdjustMetaData(videoTitle, removeSurrogate: true)}' -metadata artist='{YtDlpCommon.AdjustMetaData(artist, removeSurrogate: true)}' -metadata comment='{datetimeString}'",
                         "--embed-thumbnail",
                         "--merge-output-format", mediaType,
+                        "--cookies-from-browser", "firefox",
                         $"{videoUrl}",
                         "-o", fileName
                     );
